@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-x-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Outview Design - Professional CNC & Interior Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#3B82F6",
+              secondary: "#F97316",
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before {
+        content: "\f3c2";
+      }
+      .hero-section {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("https://public.readdy.ai/ai/img_res/f5aedbff15d8823035f7097ce6b35731.jpg");
+        background-size: cover;
+        background-position: center;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        overflow: hidden;
+      }
+
+      .perspective-container {
+        transform-style: preserve-3d;
+        perspective: 1000px;
+      }
+
+      .content-3d {
+        transform: translateZ(50px);
+        transition: transform 0.3s ease;
+      }
+
+      #heroBackground {
+        background-image: inherit;
+        background-size: cover;
+        background-position: center;
+        transform: translateZ(-20px) scale(1.1);
+        transition: transform 0.3s ease;
+      }
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .animate-fade-in {
+        animation: fade-in 0.5s ease-out forwards;
+      }
+
+      /* Mobile Responsive Scaling */
+      @media (max-width: 768px) {
+        body {
+          font-size: 95%;
+        }
+        
+        .container {
+          padding-left: 0.75rem;
+          padding-right: 0.75rem;
+        }
+
+        .grid {
+          gap: 1rem;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+          transform: scale(0.95);
+          transform-origin: left;
+        }
+
+        img {
+          max-width: 95%;
+          height: auto;
+        }
+
+        .w-36 {
+          width: 8rem;
+        }
+
+        button {
+          transform: scale(0.95);
+        }
+
+        .px-8 {
+          padding-left: 1.75rem;
+          padding-right: 1.75rem;
+        }
+
+        .px-6 {
+          padding-left: 1.25rem;
+          padding-right: 1.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="font-['Space_Grotesk'] text-gray-100 bg-gray-900 overflow-x-hidden">
+    <nav class="fixed top-0 w-full  shadow-lg z-50 bg-gray-900">
+      <div class="container mx-auto px-10 py-0">
+        <div class="flex items-center justify-between">
+          <a href="#" class="text-3xl font-['Pacifico'] text-primary"
+            ><img
+              class="w-36 h-auto"
+              src="https://outviewdsign.com/wp-content/uploads/2019/08/Outview-Logo.png"
+              alt=""
+              srcset=""
+          /></a>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#home"
+              class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary hover:text-primary transition-colors"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary hover:text-primary transition-colors"
+              >About Us</a
+            >
+            <a
+              href="#services"
+              class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary hover:text-primary transition-colors"
+              >Services</a
+            >
+            <a
+              href="#clients"
+              class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary hover:text-primary transition-colors"
+              >Clients</a
+            >
+            <a
+              href="#works"
+              class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary hover:text-primary transition-colors"
+              >Works</a
+            >
+            <a
+            href="#contact"
+            >            <button
+            class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap"
+          >
+            Contact Us
+          </button>
+        </div></a
+          >
+
+
+          <!-- Mobile Menu Button -->
+          <button
+            class="md:hidden w-10 h-10 flex items-center justify-center"
+            onclick="toggleMenu()"
+          >
+            <i class="ri-menu-line text-2xl"></i>
+          </button>
+
+          <!-- Mobile Menu Overlay -->
+          <div
+            id="mobile-menu"
+            class="fixed inset-0 bg-black bg-opacity-50 md:hidden hidden transition-opacity duration-300"
+          >
+            <!-- Mobile Menu Content -->
+            <div
+              id="menu-content"
+              class="fixed top-0 right-0 w-64 h-full bg-gray-800 transform translate-x-full transition-transform duration-300 ease-in-out"
+            >
+              <div class="flex flex-col h-full">
+                <div class="flex justify-end p-4">
+                  <button
+                    onclick="toggleMenu()"
+                    class="text-gray-200 hover:text-gray-400"
+                  >
+                    <i class="ri-close-line text-2xl"></i>
+                  </button>
+                </div>
+                <div class="flex flex-col space-y-4 p-4 text-center">
+                  <a
+                    href="#home"
+                    onclick="toggleMenu()"
+                    class="text-gray-400 hover:text-gray-50 transition-colors"
+                    >Home</a
+                  >
+                  <a
+                    href="#about"
+                    onclick="toggleMenu()"
+                    class="text-gray-400 hover:text-gray-50 transition-colors"
+                    >About Us</a
+                  >
+                  <a
+                    href="#services"
+                    onclick="toggleMenu()"
+                    class="text-gray-400 hover:text-gray-50 transition-colors"
+                    >Services</a
+                  >
+                  <a
+                    href="#works"
+                    onclick="toggleMenu()"
+                    class="text-gray-400 hover:text-gray-50 transition-colors"
+                    >Works</a
+                  >
+                  <button
+                    class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90 transition-colors"
+                  >
+                    Contact Us
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section
+      id="home"
+      class="hero-section min-h-screen flex items-center justify-center text-white pt-16 relative bg-cover bg-center perspective-container"
+      style="
+        background-image: url('images/home-hero.jpeg');
+      "
+    >
+      <!-- Blur Overlay -->
+      <div class="absolute inset-0 bg-black/50 backdrop-blur-sm z-10"></div>
+
+      <!-- Content Container -->
+      <div
+        class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 text-center relative z-20"
+      >
+        <h1 class="font-['Space_Grotesk'] text-3xl sm:text-4xl md:text-6xl font-bold mb-4 pb-3 pt-[143px] tracking-[1px] md:pt-16 sm:pt-12" data-aos="fade-down">
+          Your Trusted Partner in Design and Innovation
+        </h1>
+        <p class="text-base sm:text-lg md:text-2xl mb-6 max-w-3xl mx-auto pt-4 pb-4 text-justify" data-aos="fade-up" data-aos-delay="200">
+          Seamlessly Combining Creativity, Technology, and Innovation to Deliver
+          Exceptional Signage, CNC Fabrication, and Interior Design Solutions
+          Across South India
+        </p>
+        <a href="#about">        
+          <button
+            class="bg-primary text-white px-8 py-3 mb-4 !rounded-button text-lg hover:bg-opacity-90 transition-colors whitespace-nowrap"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            Get Started
+          </button>
+        </a>
+      </div>
+      <div class="absolute inset-0 z-0 content-3d" id="heroBackground"></div>
+    </section>
+    <section id="about" class="py-20 bg-gray-800">
+      <div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="w-full md:w-1/2" data-aos="fade-right">
+            <img
+              src="images/home-image.png"
+              alt="Our Team"
+              class="rounded-lg shadow-xl w-full h-[400px] object-cover"
+            />
+          </div>
+          <div class="w-full md:w-1/2" data-aos="fade-left">
+            <h2 class="text-4xl font-bold mb-6">
+              Crafting Excellence Since 1999
+            </h2>
+            <p class="text-lg leading-relaxed mb-8">
+              At Outview Design, we've spent over two decades perfecting the art
+              of precision manufacturing and design. Our journey began with a
+              simple mission: to deliver exceptional results through innovation
+              and craftsmanship.
+            </p>
+            <div class="grid grid-cols-2 gap-8">
+              <div class="text-lrft">
+                <span class="text-4xl font-bold text-primary block mb-2"
+                  >1000+</span
+                >
+                <span class="text-gray-400">Projects Completed</span>
+              </div>
+              <div class="text-left">
+                <span class="text-4xl font-bold text-primary block mb-2"
+                  >99%</span
+                >
+                <span class="text-gray-400">Client Satisfaction</span>
+              </div>
+            </div>
+<a href="about.html">            <button
+  class="bg-primary text-white px-4 py-2 mt-8 !rounded-button text-md hover:bg-opacity-90 transition-colors whitespace-nowrap"
+>
+  Learn More
+</button></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="why-us" class="py-20">
+      <div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+        <h2 class="text-4xl font-bold text-center mb-16">Why Outview Dsign</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+            data-aos="fade-up"
+          >
+            <div class="w-16 h-16 flex items-center justify-center mb-6">
+              <i class="ri-tools-line text-4xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-4">
+              State-of-the-Art Equipment
+            </h3>
+            <p class="text-gray-400">
+              Utilizing advanced CNC technology and digital systems for
+              unmatched precision in every project.
+            </p>
+          </div>
+          <div
+            class="bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="w-16 h-16 flex items-center justify-center mb-6">
+              <i class="ri-team-line text-4xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Expert Team</h3>
+            <p class="text-gray-400">
+              Our skilled professionals bring years of experience and dedication
+              to every project we undertake.
+            </p>
+          </div>
+          <div
+            class="bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="w-16 h-16 flex items-center justify-center mb-6">
+              <i class="ri-stack-line text-4xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Complete Solutions</h3>
+            <p class="text-gray-400">
+              From initial consultation to final installation, we provide
+              comprehensive end-to-end services.
+            </p>
+          </div>
+          <div
+            class="bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="w-16 h-16 flex items-center justify-center mb-6">
+              <i class="ri-award-line text-4xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Industry Trust</h3>
+            <p class="text-gray-400">
+              Over 20 years of excellence, trusted by leading businesses across
+              industries.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="services" class="py-10 bg-gray-800">
+      <main class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h1 class="text-4xl font-bold mb-4">Our Services</h1>
+          <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+            Transform your business with our comprehensive range of professional
+            services. From custom signage to creative artworks, we deliver
+            excellence in every project.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="service-card bg-gray-900 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300"
+            data-aos="fade-up"
+          >
+            <div class="p-8">
+              <div
+                class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6"
+              >
+                <i class="ri-artboard-2-line text-primary text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-50 mb-3">Sign Boards</h3>
+              <p class="text-gray-400 mb-4">
+                Custom signage solutions that make your business stand out.
+                Professional designs that capture attention and convey your
+                brand message effectively.
+              </p>
+              <a href="services.html#service1">
+                <button
+                  class="mt-4 px-4 py-2 bg-gray-700 text-white rounded-button hover:bg-gray-800/90"
+                >
+                  Learn More
+                </button></a
+              >
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-gray-900 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="p-8">
+              <div
+                class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6"
+              >
+                <i class="ri-gift-2-line text-primary text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-50 mb-3">Customisable Momentos</h3>
+              <p class="text-gray-400 mb-4">
+                Personalized gifts and mementos that create lasting impressions.
+                Perfect for corporate events, celebrations, and special
+                occasions, crafted with care to make every moment memorable.
+              </p>
+              <a href="services.html#service2">
+                <button
+                  class="mt-4 px-4 py-2 bg-gray-700 text-white rounded-button hover:bg-gray-800/90"
+                >
+                Learn More
+              </button></a
+              >
+            </div>
+          </div>
+
+
+          <div
+            class="service-card bg-gray-900 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="p-8">
+              <div
+                class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6"
+              >
+                <i class="ri-scissors-cut-line text-primary text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-50 mb-3">
+                CNC Cutting & Carving
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Precision cutting and carving services using state-of-the-art
+                CNC technology. Perfect for custom designs and industrial
+                applications.
+              </p>
+              <a href="services.html#service3">
+                <button
+                  class="mt-4 px-4 py-2 bg-gray-700 text-white rounded-button hover:bg-gray-800/90"
+                >
+                Learn More
+              </button></a
+              >
+            </div>
+          </div>
+
+          <div
+            class="service-card bg-gray-900 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="p-8">
+              <div
+                class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6"
+              >
+                <i class="ri-paint-brush-line text-primary text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-50 mb-3">
+                Creative Art Works
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Custom artwork that brings your vision to life. Our talented
+                artists create stunning pieces for any space or occasion.
+              </p>
+              <a href="services.html#service4">
+                <button
+                  class="mt-4 px-4 py-2 bg-gray-700 text-white rounded-button hover:bg-gray-800/90"
+                >
+                Learn More
+              </button></a
+              >
+            </div>
+          </div>
+          <div
+          class="service-card bg-gray-900 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <div class="p-8">
+            <div
+              class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6"
+            >
+              <i class="ri-home-6-line text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-50 mb-3">
+              Interior & Exterior Design
+            </h3>
+            <p class="text-gray-400 mb-4">
+              Transform your spaces with our expert design services. We create
+              beautiful, functional environments for both residential and
+              commercial properties.
+            </p>
+            <a href="services.html#service5">
+              <button
+                class="mt-4 px-4 py-2 bg-gray-700 text-white rounded-button hover:bg-gray-800/90"
+              >
+              Learn More
+            </button></a
+            >
+          </div>
+        </div>
+
+        </div>
+      </main>
+    </section>
+    <section id="clients" class="py-20">
+      <div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+        <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">
+          Our Trusted Clients
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="group bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl"
+            data-aos="fade-up"
+          >
+            <div class="relative h-48 mb-4 overflow-hidden rounded-lg">
+              <img
+                src="images/manappuram.jpg"
+                alt="Client Project 1"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+            <h3 class="text-xl font-semibold text-center">
+              Manappuram Finance
+            </h3>
+          </div>
+          <div
+            class="group bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="relative h-48 mb-4 overflow-hidden rounded-lg">
+              <img
+                src="images/kallyan.png"
+                alt="Client Project 2"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+            <h3 class="text-xl font-semibold text-center">Kallyan Hypermarket</h3>
+          </div>
+          <div
+            class="group bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="relative h-48 mb-4 overflow-hidden rounded-lg">
+              <img
+                src="images/jos.jpg"
+                alt="Client Project 3"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+            <h3 class="text-xl font-semibold text-center">Jos Alukkas</h3>
+          </div>
+          <div
+            class="group bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="relative h-48 mb-4 overflow-hidden rounded-lg">
+              <img
+                src="images/crompton.jpg"
+                alt="Client Project 4"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+            <h3 class="text-xl font-semibold text-center">
+              Crompton
+            </h3>
+          </div>
+        </div>
+        <div class="text-center mt-12">
+          <a href="clients.html">
+          <button
+            class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-opacity-90 whitespace-nowrap"
+          >
+            View More Clients
+            </button></a>
+        </div>
+      </div>
+    </section>
+    <section id="works" class="bg-gray-800 py-10">
+      <div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+        <h2 class="text-4xl text-white font-bold text-center mb-16">
+          Our Latest Works
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="group relative overflow-hidden rounded-lg" data-aos="zoom-in">
+            <img
+              src="images/works/IMG-20250218-WA0025.jpg"
+              alt="Project 1"
+              class="w-full h-[300px] object-cover transition-transform group-hover:scale-110"
+            />
+          </div>
+          <div class="group relative overflow-hidden rounded-lg" data-aos="zoom-in" data-aos-delay="100">
+            <img
+              src="images/works/IMG-20250218-WA0057.jpg"
+              alt="Project 1"
+              class="w-full h-[300px] object-cover transition-transform group-hover:scale-110"
+            />
+          </div>
+          <div class="group relative overflow-hidden rounded-lg" data-aos="zoom-in" data-aos-delay="200">
+            <img
+              src="images/works/IMG-20250218-WA0005.jpg"
+              alt="Project 2"
+              class="w-full h-[300px] object-cover transition-transform group-hover:scale-110"
+            />
+          </div>
+          <div class="group relative overflow-hidden rounded-lg" data-aos="zoom-in" data-aos-delay="300">
+            <img
+              src="images/works/IMG-20250218-WA0007.jpg"
+              alt="Project 3"
+              class="w-full h-[300px] object-cover transition-transform duration-200 ease-in-out group-hover:scale-110"
+            />
+          </div>
+        </div>
+        <div class="text-center mt-12">
+          <a href="gallery.html">
+          <button
+            class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap"
+          >
+            View All Projects
+          </button> </a>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="py-20 bg-gray-900">
+      <div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+        <h2 class="text-4xl font-bold text-center mb-16">Contact Us</h2>
+        
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Contact Form -->
+          <div class="bg-gray-900 p-8 rounded-lg shadow-lg relative overflow-hidden">
+            <!-- Grid Background Pattern -->
+            <div class="absolute inset-0 opacity-5">
+              <div class="absolute inset-0" style="background-image: linear-gradient(#3B82F6 1px, transparent 1px), linear-gradient(to right, #3B82F6 1px, transparent 1px); background-size: 20px 20px;"></div>
+            </div>
+            
+            <form id="contactForm" action="https://formspree.io/f/xjkgjrlq" method="POST" class="space-y-6 relative">
+              <div id="formContent" class="space-y-8">
+                <div>
+                  <input 
+                    type="text" 
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-button focus:outline-none focus:border-primary text-gray-100 placeholder-gray-400"
+                  >
+                </div>
+                <div>
+                  <input 
+                    type="email" 
+                    name="email"
+                    placeholder="Your Email"
+                    required
+                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-button focus:outline-none focus:border-primary text-gray-100 placeholder-gray-400"
+                  >
+                </div>
+                <div>
+                  <textarea 
+                    name="message"
+                    placeholder="Your Message"
+                    rows="5"
+                    required
+                    class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-button focus:outline-none focus:border-primary text-gray-100 placeholder-gray-400"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="w-full bg-primary text-white px-6 py-3 !rounded-button hover:bg-opacity-90 transition-colors relative"
+                >
+                  <span id="submitText">Send Message</span>
+                  <span id="loadingSpinner" class="hidden">
+                    <svg class="animate-spin h-5 w-5 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span class="ml-2">Sending...</span>
+                  </span>
+                </button>
+              </div>
+              <div id="thankYouMessage" class="hidden text-center py-8 relative">
+                <i class="ri-check-line text-6xl text-primary mb-4"></i>
+                <h3 class="text-2xl font-bold text-gray-100 mb-2">Thank You!</h3>
+                <p class="text-gray-400">We've received your message and will get back to you soon.</p>
+              </div>
+            </form>
+          </div>
+
+          <!-- Location Information -->
+          <div>
+            <div class="bg-gray-900 p-8 rounded-lg shadow-lg mb-8">
+              <h3 class="text-2xl font-bold mb-6 text-primary">Headquarters</h3>
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0 mt-1">
+                  <i class="ri-map-pin-line text-2xl text-primary"></i>
+                </div>
+                <div>
+                  <p class="text-gray-100 font-semibold">ABC Town, XYZ Road</p>
+                  <p class="text-gray-400">Thrissur, Kerala - 680001</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-4 mt-4">
+                <i class="ri-phone-line text-xl text-primary"></i>
+                <p class="text-gray-400">+91-9995686564</p>
+              </div>
+              <div class="flex items-center space-x-4 mt-4">
+                <i class="ri-mail-line text-xl text-primary"></i>
+                <p class="text-gray-400">vinod@outviewdsign.com</p>
+              </div>
+            </div>
+
+            <div class="bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm">
+              <h4 class="text-lg font-semibold mb-4 text-primary">Other Locations</h4>
+              <div class="space-y-4">
+                <div class="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors">
+                  <i class="ri-map-pin-line"></i>
+                  <span>Thrissur Branch</span>
+                </div>
+                <div class="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors">
+                  <i class="ri-map-pin-line"></i>
+                  <span>Kozhikode Branch</span>
+                </div>
+                <div class="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors">
+                  <i class="ri-map-pin-line"></i>
+                  <span>Palakkad Branch</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <a href="#" class="text-3xl text-primary"
+            ><img
+              class="w-36 h-auto"
+              src="https://outviewdsign.com/wp-content/uploads/2019/08/Outview-Logo.png"
+              alt=""
+              srcset=""
+          /></a>
+            <p class="text-gray-400">
+              Delivering excellence in CNC cutting, signage, and interior
+              solutions since 1999.
+            </p>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#about" class="hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#services" class="hover:text-white transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a href="#works" class="hover:text-white transition-colors"
+                  >Works</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="hover:text-white transition-colors"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Services</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>Sign Boards</li>
+              <li>Momentos</li>
+              <li>Interior & Exterior Design </li>
+              <li>CNC Cutting & Carving</li>
+              <li>Creative Art Works</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+              >
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+              >
+                <i class="ri-twitter-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+              >
+                <i class="ri-linkedin-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+              >
+                <i class="ri-instagram-fill"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2025 Outview Design. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+        easing: 'ease-out-cubic'
+      });
+
+      // Add 3D effect for hero section
+      document.addEventListener('DOMContentLoaded', function() {
+        const heroSection = document.getElementById('home');
+        const heroContent = document.getElementById('heroContent');
+        const heroBackground = document.getElementById('heroBackground');
+
+        heroSection.addEventListener('mousemove', (e) => {
+            const rect = heroSection.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Calculate 3D effect
+            const xPercent = (x / rect.width - 0.5) * 10;
+            const yPercent = (y / rect.height - 0.5) * 10;
+            
+            // Apply 3D rotation to content
+            heroContent.style.transform = `translateZ(50px) rotateX(${-yPercent}deg) rotateY(${xPercent}deg)`;
+            
+            // Apply opposite rotation to background for parallax effect
+            heroBackground.style.transform = `translateZ(-20px) rotateX(${yPercent * 0.5}deg) rotateY(${-xPercent * 0.5}deg) scale(1.1)`;
+        });
+        
+        heroSection.addEventListener('mouseleave', () => {
+            heroContent.style.transform = 'translateZ(50px) rotateX(0deg) rotateY(0deg)';
+            heroBackground.style.transform = 'translateZ(-20px) rotateX(0deg) rotateY(0deg) scale(1.1)';
+        });
+      });
+    </script>
+    <script src="index.js"></script>
+  </body>
+</html>

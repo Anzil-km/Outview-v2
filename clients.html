@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Clients - Outview Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#3B82F6",
+              secondary: "#F97316",
+            },
+            borderRadius: {
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before {
+        content: "\f3c2";
+      }
+      
+      .client-modal {
+        animation: modalFadeIn 0.3s ease-out;
+      }
+      
+      @keyframes modalFadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body class="font-['Space_Grotesk'] text-gray-100 bg-gray-900">
+    <nav class="fixed top-0 w-full bg-gray-900 shadow-lg z-50">
+      <div class="container mx-auto px-10 py-0">
+        <div class="flex items-center justify-between">
+          <a href="#" class="text-3xl font-['Pacifico'] text-primary"
+            ><img
+              class="w-36 h-auto transition-all duration-300"
+              src="https://outviewdsign.com/wp-content/uploads/2019/08/Outview-Logo.png"
+              alt=""
+              srcset=""
+          /></a>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="index.html"
+              class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary hover:text-primary transition-colors"
+              >Home</a
+            >
+            <a
+              href="about.html"
+              class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary hover:text-primary transition-colors"
+              >About Us</a
+            >
+            <a
+              href="services.html"
+              class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary hover:text-primary transition-colors"
+              >Services</a
+            >
+            <a
+              href="clients.html"
+              class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:w-full after:transition-all after:duration-300 after:bg-primary hover:text-primary transition-colors"
+              >Clients</a
+            >
+            <a
+              href="gallery.html"
+              class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary hover:text-primary transition-colors"
+              >Works</a
+            >
+            <a
+            href="index.html#contact"
+            >            <button
+            class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap"
+          >
+            Contact Us
+          </button>
+        </div></a
+          >
+
+          <!-- Mobile Menu Button -->
+          <button
+            class="md:hidden w-10 h-10 flex items-center justify-center"
+            onclick="toggleMenu()"
+          >
+            <i class="ri-menu-line text-2xl"></i>
+          </button>
+
+          <!-- Mobile Menu Overlay -->
+          <div
+            id="mobile-menu"
+            class="fixed inset-0 bg-black bg-opacity-50 md:hidden hidden transition-opacity duration-300"
+          >
+            <!-- Mobile Menu Content -->
+            <div
+              id="menu-content"
+              class="fixed top-0 right-0 w-64 h-full bg-gray-800 transform translate-x-full transition-transform duration-300 ease-in-out"
+            >
+              <div class="flex flex-col h-full">
+                <div class="flex justify-end p-4">
+                  <button
+                    onclick="toggleMenu()"
+                    class="text-gray-200 hover:text-gray-400"
+                  >
+                    <i class="ri-close-line text-2xl"></i>
+                  </button>
+                </div>
+                <div class="flex flex-col space-y-4 p-4 text-center">
+                  <a
+                    href="index.html"
+                    onclick="toggleMenu()"
+                    class="text-gray-400 hover:text-gray-50 transition-colors"
+                    >Home</a
+                  >
+                  <a
+                    href="about.html"
+                    onclick="toggleMenu()"
+                    class="text-gray-400 hover:text-gray-50 transition-colors"
+                    >About Us</a
+                  >
+                  <a
+                    href="services.html"
+                    onclick="toggleMenu()"
+                    class="text-gray-400 hover:text-gray-50 transition-colors"
+                    >Services</a
+                  >
+                  <a
+                    href="clients.html"
+                    onclick="toggleMenu()"
+                    class="text-gray-400 hover:text-gray-50 transition-colors"
+                    >Clients</a
+                  >
+                  <a
+                    href="gallery.html"
+                    onclick="toggleMenu()"
+                    class="text-gray-400 hover:text-gray-50 transition-colors"
+                    >Works</a
+                  >
+                  <a href="index.html#contact">
+                  <button
+                    class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90 transition-colors"
+                  >
+                    Contact Us
+                  </button> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="pt-32 pb-16 relative">
+      <!-- Background Image with Overlay -->
+      <div class="absolute inset-0 z-0">
+        <img 
+          src="images/service-banner.jpg" 
+          alt="Background" 
+          class="w-full h-full object-cover"
+        >
+        <div class="absolute inset-0 bg-gray-900/80 backdrop-blur-sm"></div>
+      </div>
+      
+      <!-- Content -->
+      <div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 relative z-10">
+        <h1 class="text-4xl md:text-5xl font-bold text-center mb-4" data-aos="fade-down">Our Valued Clients</h1>
+        <p class="text-gray-300 text-center max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+          Trusted by leading businesses across industries. Our diverse portfolio of clients reflects our commitment to excellence and innovation.
+        </p>
+      </div>
+    </header>
+
+    <!-- Corporate Clients Section -->
+    <section class="py-16 bg-gray-800">
+      <div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+        <h2 class="text-3xl font-bold mb-12" data-aos="fade-up">Corporate Partners</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Corporate Client Cards -->
+          <div class="group cursor-pointer" onclick="openClientModal('client1')" data-aos="fade-up">
+            <div class="bg-gray-900 rounded-lg p-8 transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <img src="images/manappuram.jpg" alt="Manappuram Foundation" class="w-full h-48 object-contain mb-6">
+              <h3 class="text-xl font-semibold mb-2">Manappuram Foundation</h3>
+              <p class="text-gray-400">Leading CSR Initiative</p>
+            </div>
+          </div>
+          <div class="group cursor-pointer" onclick="openClientModal('client2')" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-gray-900 rounded-lg p-8 transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <img src="images/untitled-1_81.png" alt="Castrol" class="w-full h-48 object-contain mb-6">
+              <h3 class="text-xl font-semibold mb-2">Castrol</h3>
+              <p class="text-gray-400">Castrol – Driving Performance</p>
+            </div>
+          </div>
+          <div class="group cursor-pointer" onclick="openClientModal('client3')" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-gray-900 rounded-lg p-8 transition-all duration-300 hover:shadow-xl hover:scale-105">
+                  <img src="images/veedolpng.png" alt="Veedol" class="w-full h-48 object-contain mb-6">
+              <h3 class="text-xl font-semibold mb-2">Veedol</h3>
+              <p class="text-gray-400">Trusted Lubricants for Every Drive</p>
+            </div>
+          </div>
+          <div class="group cursor-pointer" onclick="openClientModal('client4')" data-aos="fade-up" data-aos-delay="300">
+            <div class="bg-gray-900 rounded-lg p-8 transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <img src="images/crompton.jpg" alt="Crompton" class="w-full h-48 object-contain mb-6">
+              <h3 class="text-xl font-semibold mb-2">Crompton</h3>
+              <p class="text-gray-400"> Leading Consumer Electrical Brand</p>
+            </div>
+          </div>
+          <div class="group cursor-pointer" onclick="openClientModal('client5')" data-aos="fade-up" data-aos-delay="400">
+            <div class="bg-gray-900 rounded-lg p-8 transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <img src="images/jos.jpg" alt="Jos Alukkas" class="w-full h-48 object-contain mb-6">
+              <h3 class="text-xl font-semibold mb-2">Jos Alukkas</h3>
+              <p class="text-gray-400">Leading Trusted Jeweler</p>
+            </div>
+          </div>
+          <div class="group cursor-pointer" onclick="openClientModal('client6')" data-aos="fade-up" data-aos-delay="500">
+            <div class="bg-gray-900 rounded-lg p-8 transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <img src="images/jsw.jpg" alt="JSW Paints" class="w-full h-48 object-contain mb-6">
+              <h3 class="text-xl font-semibold mb-2">JSW Paints</h3>
+              <p class="text-gray-400">Leading Innovative Paint Brand</p>
+            </div>
+          </div>
+          <div class="group cursor-pointer" onclick="openClientModal('client7')" data-aos="fade-up" data-aos-delay="600">
+            <div class="bg-gray-900 rounded-lg p-8 transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <img src="images/kallyan.png" alt="Kallyan Hypermarket" class="w-full h-48 object-contain mb-6">
+              <h3 class="text-xl font-semibold mb-2">Kallyan Hypermarket</h3>
+              <p class="text-gray-400">Leading Retail Destination</p>
+            </div>
+          </div>
+          <div class="group cursor-pointer" onclick="openClientModal('client8')" data-aos="fade-up" data-aos-delay="700">
+            <div class="bg-gray-900 rounded-lg p-8 transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <img src="images/ma-care.png" alt="MA Care Academy" class="w-full h-48 object-contain mb-6">
+              <h3 class="text-xl font-semibold mb-2">MA Care Academy</h3>
+              <p class="text-gray-400">Leading Healthcare Training Institute</p>
+            </div>
+          </div>
+          <div class="group cursor-pointer" onclick="openClientModal('client9')" data-aos="fade-up" data-aos-delay="800">
+            <div class="bg-gray-900 rounded-lg p-8 transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <img src="images/manappuram-finance.jpg" alt="Manappuram Finance" class="w-full h-48 object-contain mb-6">
+              <h3 class="text-xl font-semibold mb-2">Manappuram Finance</h3>
+              <p class="text-gray-400">Leading financial services company</p>
+            </div>
+          </div>
+          <div class="group cursor-pointer" onclick="openClientModal('client10')" data-aos="fade-up" data-aos-delay="900">
+            <div class="bg-gray-900 rounded-lg p-8 transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <img src="images/chemmannur-jwellers.jpg" alt="Chemmannur Jwellers" class="w-full h-48 object-contain mb-6">
+              <h3 class="text-xl font-semibold mb-2">Chemmannur Jwellers</h3>
+              <p class="text-gray-400">Leading Jewelry Brand</p>
+            </div>
+          </div>
+          <div class="group cursor-pointer" onclick="openClientModal('client11')" data-aos="fade-up" data-aos-delay="900">
+            <div class="bg-gray-900 rounded-lg p-8 transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <img src="images/sbi.png" alt="Chemmannur Jwellers" class="w-full h-48 object-contain mb-6">
+              <h3 class="text-xl font-semibold mb-2">SBI Life insurance</h3>
+              <p class="text-gray-400">A leading life insurance provider securing millions of lives.</p>
+            </div>
+          </div>
+          <!-- Add more corporate client cards -->
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Client Modal -->
+    <div id="clientModal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-start sm:items-center justify-center overflow-y-auto py-4">
+      <div class="client-modal bg-gray-800 rounded-lg w-[95%] sm:w-[85%] md:max-w-3xl mx-auto my-auto">
+        <div class="relative">
+          <!-- Close Button -->
+          <button onclick="closeClientModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white z-10">
+            <i class="ri-close-line text-2xl"></i>
+          </button>
+          
+          <!-- Modal Content -->
+          <div class="p-4 sm:p-6 md:p-8 max-h-[90vh] overflow-y-auto">
+            <div id="modalContent" class="relative">
+              <!-- Content will be dynamically inserted here -->
+            </div>
+            
+            <!-- Navigation Buttons -->
+            <div class="flex justify-between sticky bottom-0 bg-gray-800 pt-4 pb-4 border-t border-gray-700">
+              <button onclick="previousClient()" class="flex items-center text-primary hover:text-primary/80">
+                <i class="ri-arrow-left-line mr-2"></i> Previous
+              </button>
+              <button onclick="nextClient()" class="flex items-center text-primary hover:text-primary/80">
+                Next <i class="ri-arrow-right-line ml-2"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <a href="#" class="text-3xl font-['Pacifico'] text-primary"
+            ><img
+              class="w-36 h-auto transition-all duration-300"
+              src="https://outviewdsign.com/wp-content/uploads/2019/08/Outview-Logo.png"
+              alt=""
+              srcset=""
+          /></a>
+            <p class="text-gray-400">
+              Delivering excellence in CNC cutting, signage, and interior
+              solutions since 1999.
+            </p>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#about" class="hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#services" class="hover:text-white transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a href="#works" class="hover:text-white transition-colors"
+                  >Works</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="hover:text-white transition-colors"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Services</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>Sign Boards</li>
+              <li>Momentos</li>
+              <li>Interior & Exterior Design </li>
+              <li>CNC Cutting & Carving</li>
+              <li>Creative Art Works</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+              >
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+              >
+                <i class="ri-twitter-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+              >
+                <i class="ri-linkedin-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+              >
+                <i class="ri-instagram-fill"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-900 mt-12 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2025 Outview Design. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+        easing: 'ease-out-cubic'
+      });
+
+      // Mobile menu toggle function
+      function toggleMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuContent = document.getElementById('menu-content');
+        
+        if (mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                menuContent.classList.remove('translate-x-full');
+            }, 0);
+        } else {
+            menuContent.classList.add('translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        }
+      }
+    </script>
+    <script src="clients.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

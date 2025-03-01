@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-x-hidden">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outview Design - Crafting Excellence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#3B82F6',
+secondary: '#60A5FA'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+.timeline-item::before {
+content: '';
+position: absolute;
+width: 2px;
+height: 100%;
+background: #e5e7eb;
+left: 50%;
+transform: translateX(-50%);
+z-index: -1;
+}
+.timeline-item:last-child::before {
+height: 0;
+}
+.testimonial-slide {
+display: none;
+}
+.testimonial-slide.active {
+display: block;
+}
+
+@keyframes gradientPulse {
+0% {
+background-position: 0% 50%;
+opacity: 0.8;
+}
+50% {
+background-position: 100% 50%;
+opacity: 1;
+}
+100% {
+background-position: 0% 50%;
+opacity: 0.8;
+}
+}
+
+.gradient-pulse {
+background: linear-gradient(90deg, var(bg-gray-800), var(bg-gray-900));
+background-size: 200% 200%;
+animation: gradientPulse 4s ease infinite;
+}
+
+.grid-pattern {
+background-image: 
+linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+background-size: 20px 20px;
+}
+
+.floating-orb {
+width: 150px;
+height: 150px;
+position: absolute;
+border-radius: 50%;
+pointer-events: none;
+mix-blend-mode: screen;
+background: radial-gradient(circle at center, rgb(55 65 81 / 0.8), rgb(31 41 55 / 0.062) 70%);
+transform: translate(-50%, -50%);
+filter: blur(20px);
+transition: all 0.1s ease;
+}
+
+.perspective-container {
+transform-style: preserve-3d;
+perspective: 1000px;
+}
+
+.content-3d {
+transform: translateZ(50px);
+transition: transform 0.3s ease;
+}
+</style>
+</head>
+<body class="bg-gray-900 text-gray-100 overflow-x-hidden">
+  <nav class="fixed top-0 w-full bg-gray-900 shadow-lg z-50">
+    <div class="container mx-auto px-10 py-0">
+      <div class="flex items-center justify-between">
+        <a href="#" class="text-3xl font-['Pacifico'] text-primary"
+          ><img
+            class="w-36 h-auto transition-all duration-300"
+            src="https://outviewdsign.com/wp-content/uploads/2019/08/Outview-Logo.png"
+            alt=""
+            srcset=""
+        /></a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a
+            href="index.html"
+            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary hover:text-primary transition-colors"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="relative active after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:w-full after:transition-all after:duration-300 after:bg-primary hover:text-primary transition-colors"
+            >About Us</a
+          >
+          <a
+            href="services.html"
+            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary hover:text-primary transition-colors"
+            >Services</a
+          >
+          <a
+            href="clients.html"
+            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary hover:text-primary transition-colors"
+            >Clients</a
+          >
+          <a
+            href="gallery.html"
+            class="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:transition-all after:duration-300 after:bg-primary hover:text-primary transition-colors"
+            >Works</a
+          >
+          <a
+          href="index.html#contact"
+          >            <button
+          class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap"
+        >
+          Contact Us
+        </button>
+      </div></a
+        >
+
+        <!-- Mobile Menu Button -->
+        <button
+          class="md:hidden w-10 h-10 flex items-center justify-center"
+          onclick="toggleMenu()"
+        >
+          <i class="ri-menu-line text-2xl"></i>
+        </button>
+
+        <!-- Mobile Menu Overlay -->
+        <div
+          id="mobile-menu"
+          class="fixed inset-0 bg-black bg-opacity-50 md:hidden hidden transition-opacity duration-300"
+        >
+          <!-- Mobile Menu Content -->
+          <div
+            id="menu-content"
+            class="fixed top-0 right-0 w-64 h-full bg-gray-800 transform translate-x-full transition-transform duration-300 ease-in-out"
+          >
+            <div class="flex flex-col h-full">
+              <div class="flex justify-end p-4">
+                <button
+                  onclick="toggleMenu()"
+                  class="text-gray-200 hover:text-gray-400"
+                >
+                  <i class="ri-close-line text-2xl"></i>
+                </button>
+              </div>
+              <div class="flex flex-col space-y-4 p-4 text-center">
+                <a
+                  href="index.html"
+                  onclick="toggleMenu()"
+                  class="text-gray-400 hover:text-gray-50 transition-colors"
+                  >Home</a
+                >
+                <a
+                  href="about.html"
+                  onclick="toggleMenu()"
+                  class="text-gray-400 hover:text-gray-50 transition-colors"
+                  >About Us</a
+                >
+                <a
+                  href="services.html"
+                  onclick="toggleMenu()"
+                  class="text-gray-400 hover:text-gray-50 transition-colors"
+                  >Services</a
+                >
+                <a
+                  href="clients.html"
+                  onclick="toggleMenu()"
+                  class="text-gray-400 hover:text-gray-50 transition-colors"
+                  >Clients</a
+                >
+                <a
+                  href="gallery.html"
+                  onclick="toggleMenu()"
+                  class="text-gray-400 hover:text-gray-50 transition-colors"
+                  >Works</a
+                >
+                <a href="index.html#contact">
+                <button
+                  class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90 transition-colors"
+                >
+                  Contact Us
+                </button> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<section id="about" class="py-20 bg-gray-800">
+<div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+<h2 class="text-4xl font-bold text-center mt-12 mb-16" data-aos="fade-down">About Us</h2>
+<div class="flex flex-col lg:flex-row gap-12 items-center">
+<div class="w-full lg:w-1/2 perspective-container" data-aos="fade-right" id="imageContainer">
+<div class="relative content-3d" id="imageContent">
+<img src="images/about-image.jpeg" alt="About Us" class="w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-300">
+</div>
+</div>
+<div class="w-full lg:w-1/2 space-y-8" data-aos="fade-left">
+<div>
+<h3 class="text-2xl font-bold text-primary mb-4">Our Vision</h3>
+<p class="text-gray-400 leading-relaxed">At Outview Design, we envision a future where design excellence meets technological innovation. Our commitment to pushing boundaries and exploring new possibilities drives us to create solutions that not only meet but exceed our clients' expectations. We believe in the power of design to transform spaces, experiences, and businesses.</p>
+</div>
+<div>
+<h3 class="text-2xl font-bold text-primary mb-4">Our Approach</h3>
+<p class="text-gray-400 leading-relaxed">We combine cutting-edge technology with creative expertise to deliver exceptional results. Our team of skilled professionals works collaboratively, bringing together diverse perspectives and expertise to tackle complex design challenges. We prioritize sustainability and efficiency in every project, ensuring long-lasting impact and value.</p>
+</div>
+<div>
+<h3 class="text-2xl font-bold text-primary mb-4">Our Promise</h3>
+<p class="text-gray-400 leading-relaxed">Quality, innovation, and client satisfaction are at the heart of everything we do. We promise to maintain the highest standards of craftsmanship, embrace sustainable practices, and provide personalized solutions that align with our clients' goals. Our dedication to excellence ensures that every project we undertake becomes a testament to our commitment to superior design and manufacturing.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20">
+<div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+<h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">What We Stand For</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="p-8 bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up">
+<div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+<i class="ri-lightbulb-line text-4xl text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-center mb-4">Innovation</h3>
+<p class="text-gray-400 text-center">Pushing boundaries and embracing new technologies to deliver cutting-edge solutions for our clients.</p>
+</div>
+<div class="p-8 bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="100">
+<div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+<i class="ri-shield-check-line text-4xl text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-center mb-4">Quality</h3>
+<p class="text-gray-400 text-center">Maintaining the highest standards in every project, from concept to completion.</p>
+</div>
+<div class="p-8 bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="200">
+<div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+<i class="ri-leaf-line text-4xl text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-center mb-4">Sustainability</h3>
+<p class="text-gray-400 text-center">Committed to eco-friendly practices and sustainable manufacturing processes.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="services" class="py-10 bg-gray-800">
+  <main class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <h1 class="text-4xl font-bold mb-4">Our Services</h1>
+      <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+        Transform your business with our comprehensive range of professional
+        services. From custom signage to creative artworks, we deliver
+        excellence in every project.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div
+        class="service-card bg-gray-900 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300"
+        data-aos="fade-up"
+      >
+        <div class="p-8">
+          <div
+            class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6"
+          >
+            <i class="ri-artboard-2-line text-primary text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-50 mb-3">Sign Boards</h3>
+          <p class="text-gray-400 mb-4">
+            Custom signage solutions that make your business stand out.
+            Professional designs that capture attention and convey your
+            brand message effectively.
+          </p>
+          <a href="services.html#service1">
+            <button
+              class="mt-4 px-4 py-2 bg-gray-700 text-white rounded-button hover:bg-gray-800/90"
+            >
+              Learn More
+            </button></a
+          >
+        </div>
+      </div>
+
+      <div
+        class="service-card bg-gray-900 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div class="p-8">
+          <div
+            class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6"
+          >
+            <i class="ri-gift-2-line text-primary text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-50 mb-3">Customisable Momentos</h3>
+          <p class="text-gray-400 mb-4">
+            Personalized gifts and mementos that create lasting impressions.
+            Perfect for corporate events, celebrations, and special
+            occasions, crafted with care to make every moment memorable.
+          </p>
+          <a href="services.html#service2">
+            <button
+              class="mt-4 px-4 py-2 bg-gray-700 text-white rounded-button hover:bg-gray-800/90"
+            >
+            Learn More
+          </button></a
+          >
+        </div>
+      </div>
+
+
+      <div
+        class="service-card bg-gray-900 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <div class="p-8">
+          <div
+            class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6"
+          >
+            <i class="ri-scissors-cut-line text-primary text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-50 mb-3">
+            CNC Cutting & Carving
+          </h3>
+          <p class="text-gray-400 mb-4">
+            Precision cutting and carving services using state-of-the-art
+            CNC technology. Perfect for custom designs and industrial
+            applications.
+          </p>
+          <a href="services.html#service3">
+            <button
+              class="mt-4 px-4 py-2 bg-gray-700 text-white rounded-button hover:bg-gray-800/90"
+            >
+            Learn More
+          </button></a
+          >
+        </div>
+      </div>
+
+      <div
+        class="service-card bg-gray-900 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
+        <div class="p-8">
+          <div
+            class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6"
+          >
+            <i class="ri-paint-brush-line text-primary text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-50 mb-3">
+            Creative Art Works
+          </h3>
+          <p class="text-gray-400 mb-4">
+            Custom artwork that brings your vision to life. Our talented
+            artists create stunning pieces for any space or occasion.
+          </p>
+          <a href="servicees.html#service4">
+            <button
+              class="mt-4 px-4 py-2 bg-gray-700 text-white rounded-button hover:bg-gray-800/90"
+            >
+            Learn More
+          </button></a
+          >
+        </div>
+      </div>
+      <div
+      class="service-card bg-gray-900 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300"
+      data-aos="fade-up"
+      data-aos-delay="400"
+    >
+      <div class="p-8">
+        <div
+          class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6"
+        >
+          <i class="ri-home-6-line text-primary text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-50 mb-3">
+          Interior & Exterior Design
+        </h3>
+        <p class="text-gray-400 mb-4">
+          Transform your spaces with our expert design services. We create
+          beautiful, functional environments for both residential and
+          commercial properties.
+        </p>
+        <a href="services.html#service5">
+          <button
+            class="mt-4 px-4 py-2 bg-gray-700 text-white rounded-button hover:bg-gray-800/90"
+          >
+          Learn More
+        </button></a
+        >
+      </div>
+    </div>
+
+    </div>
+  </main>
+</section>
+<section id="testimonials" class="py-20 bg-gray-900">
+<div class="container mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Our Clients, Our Pride</h2>
+<div class="relative max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+<div class="testimonial-container touch-pan-y" id="testimonialContainer">
+<div class="testimonial-slide active">
+<blockquote class="bg-gray-700 p-8 rounded-lg shadow-lg mb-8">
+<p class="text-gray-400 text-lg mb-6">"Working with Outview Dsign has been a game-changer for our business. From their creative designs to on-time delivery, they exceed our expectations every single time."</p>
+<footer class="flex items-center">
+<img src="https://public.readdy.ai/ai/img_res/6fe623f8254a41bdf6beb5b8e75f6629.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+<div>
+<p class="font-bold">Midhun</p>
+<p class="text-gray-400">CEO, Brand Crafters</p>
+</div>
+</footer>
+</blockquote>
+</div>
+</div>
+<div class="flex justify-center space-x-2">
+<button class="w-3 h-3 rounded-full bg-primary" onclick="changeTestimonial(0)"></button>
+<button class="w-3 h-3 rounded-full bg-gray-300" onclick="changeTestimonial(1)"></button>
+<button class="w-3 h-3 rounded-full bg-gray-300" onclick="changeTestimonial(2)"></button>
+<button class="w-3 h-3 rounded-full bg-gray-300" onclick="changeTestimonial(3)"></button>
+<button class="w-3 h-3 rounded-full bg-gray-300" onclick="changeTestimonial(4)"></button>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="py-20 gradient-pulse text-white relative overflow-hidden perspective-container" id="visionSection">
+  <div class="absolute inset-0 grid-pattern"></div>
+  <div class="absolute inset-0 bg-gray-900/10 backdrop-blur-[2px]"></div>
+  <div class="floating-orb" id="floatingOrb"></div>
+  <div class="container mx-auto px-6 text-center relative z-10 content-3d" id="content3d">
+    <h2 class="text-4xl font-bold mb-8 drop-shadow-lg">Ready to Bring Your Vision to Life?</h2>
+    <div class="space-x-1">
+      <a href="index.html#contact">
+        <button class="bg-white/10 backdrop-blur-sm text-white px-8 py-3 !rounded-button hover:bg-white/20 whitespace-nowrap mb-4 sm:mb-4 md:mb-4 transition-all duration-300 shadow-lg">
+          Contact Us Today
+        </button>
+      </a>
+      <a href="">
+        <button class="border-2 border-white/50 px-8 py-3 sm:m-0 !rounded-button hover:bg-white/10 whitespace-nowrap transition-all duration-300 shadow-lg">
+          Explore Our Work
+        </button>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-gray-900 text-white py-12">
+  <div class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+    <div class="grid md:grid-cols-4 gap-8">
+      <div>
+        <a href="#" class="text-3xl text-primary"
+        ><img
+          class="w-36 h-auto"
+          src="https://outviewdsign.com/wp-content/uploads/2019/08/Outview-Logo.png"
+          alt=""
+          srcset=""
+      /></a>
+        <p class="text-gray-400">
+          Delivering excellence in CNC cutting, signage, and interior
+          solutions since 1999.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li>
+            <a href="#about" class="hover:text-white transition-colors"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a href="#services" class="hover:text-white transition-colors"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a href="index.html#works" class="hover:text-white transition-colors"
+              >Works</a
+            >
+          </li>
+          <li>
+            <a href="index.html#contact" class="hover:text-white transition-colors"
+              >Contact Us</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Services</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li>Sign Boards</li>
+          <li>Momentos</li>
+          <li>Interior & Exterior Design </li>
+          <li>CNC Cutting & Carving</li>
+          <li>Creative Art Works</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
+        <div class="flex space-x-4">
+          <a
+            href="#"
+            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+          >
+            <i class="ri-facebook-fill"></i>
+          </a>
+          <a
+            href="#"
+            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+          >
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a
+            href="#"
+            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+          >
+            <i class="ri-linkedin-fill"></i>
+          </a>
+          <a
+            href="#"
+            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors"
+          >
+            <i class="ri-instagram-fill"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="border-t border-gray-900 mt-12 pt-8 text-center text-gray-400"
+    >
+      <p>&copy; 2025 Outview Design. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script src="works.js"></script>
+<script src="index.js"></script>
+<script src="about.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+        easing: 'ease-out-cubic'
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const section = document.getElementById('visionSection');
+        const orb = document.getElementById('floatingOrb');
+        const content = document.getElementById('content3d');
+        
+        section.addEventListener('mousemove', (e) => {
+            const rect = section.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Move the orb
+            orb.style.left = `${x}px`;
+            orb.style.top = `${y}px`;
+            
+            // Calculate 3D effect
+            const xPercent = (x / rect.width - 0.5) * 20;
+            const yPercent = (y / rect.height - 0.5) * 20;
+            
+            // Apply 3D rotation to content
+            content.style.transform = `translateZ(50px) rotateX(${-yPercent}deg) rotateY(${xPercent}deg)`;
+        });
+        
+        section.addEventListener('mouseleave', () => {
+            content.style.transform = 'translateZ(50px) rotateX(0deg) rotateY(0deg)';
+        });
+
+        // Add 3D effect for About section image
+        const imageContainer = document.getElementById('imageContainer');
+        const imageContent = document.getElementById('imageContent');
+
+        if (imageContainer && imageContent) {
+            imageContainer.addEventListener('mousemove', (e) => {
+                const rect = imageContainer.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Calculate 3D effect
+                const xPercent = (x / rect.width - 0.5) * 15; // Reduced intensity for smoother effect
+                const yPercent = (y / rect.height - 0.5) * 15;
+                
+                // Apply 3D rotation to image
+                imageContent.style.transform = `translateZ(50px) rotateX(${-yPercent}deg) rotateY(${xPercent}deg) scale(1.05)`;
+            });
+            
+            imageContainer.addEventListener('mouseleave', () => {
+                imageContent.style.transform = 'translateZ(50px) rotateX(0deg) rotateY(0deg) scale(1)';
+            });
+        }
+    });
+</script>
+</body>
+</html>
