@@ -86,7 +86,8 @@ const clients = [
     type: "corporate",
     image: "images/manappuram.jpg",
     description: "The CSR arm of Manappuram, driving social impact.",
-    projectDetails: "Awareness campaign signage and event branding.",
+    projectDetails:
+      "Comprehensive signage solutions for 10+ branches across South India.",
     testimonial: "Their work truly elevated our community initiatives.",
     services: ["Event Branding", "Awareness Signage", "Campaign Displays"],
   },
